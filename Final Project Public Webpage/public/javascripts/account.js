@@ -6,14 +6,14 @@ function addDevice() { //Add a new device to user's account
     let device = document.getElementById("device");
     let err = document.getElementById("formErrors");
     let list = document.getElementById("list");
-    email.style.border = "1px solid #aaa";
-    device.style.border = "1px solid #aaa";
+    email.style.borderBottom = "1px solid #aaa";
+    device.style.borderBottom = "1px solid #aaa";
     while(list.firstChild) {
         list.removeChild(list.lastChild);
     }
     let counter = 0;
     if((email.value.length < 1) || (!re.test(email.value))) {
-        email.style.border = "2px solid red";
+        email.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Invalid or missing email address.");
@@ -22,7 +22,7 @@ function addDevice() { //Add a new device to user's account
         counter++;
     }
     if(device.value.length < 1) {
-        device.style.border = "2px solid red";
+        device.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Missing device ID.");
@@ -32,8 +32,8 @@ function addDevice() { //Add a new device to user's account
     }
     if(counter == 0) {
         err.style.display = "none";
-        email.style.border = "1px solid #aaa";
-        device.style.border = "1px solid #aaa";
+        email.style.borderBottom = "1px solid #aaa";
+        device.style.borderBottom = "1px solid #aaa";
         let txdata = {
             email: $('#email').val(),
             device: $('#device').val()
@@ -55,30 +55,6 @@ function addDevice() { //Add a new device to user's account
     counter = 0;
 }
 
-function readStudent() {
-    // data validation
-    if ($('#name').val() === "") {
-        window.alert("invalid name!");
-        return;
-    }
-    let txdata = {
-        name: $('#name').val()
-    };
-    $.ajax({
-        url: '/students/read',
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(txdata),
-        dataType: 'json'
-    })
-    .done(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        $('#rxData').html(JSON.stringify(jqXHR, null, 2));
-    });
-}
-
 function updateAccount() { //updates the user's account based on the given email, fails if email is not in system
     // data validation
     let re1 = /[a-z]/;
@@ -91,16 +67,16 @@ function updateAccount() { //updates the user's account based on the given email
     let passCheck = document.getElementById("passwordConfirm");
     let err = document.getElementById("formErrors");
     let list = document.getElementById("list");
-    fName.style.border = "1px solid #aaa";
-    email.style.border = "1px solid #aaa";
-    password.style.border = "1px solid #aaa";
-    passCheck.style.border = "1px solid #aaa";
+    fName.style.borderBottom = "1px solid #aaa";
+    email.style.borderBottom = "1px solid #aaa";
+    password.style.borderBottom = "1px solid #aaa";
+    passCheck.style.borderBottom = "1px solid #aaa";
     while(list.firstChild) {
         list.removeChild(list.lastChild);
     }
     let counter = 0;
     if(fName.value.length < 1) {
-        fName.style.border = "2px solid red";
+        fName.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Missing full name.");
@@ -109,7 +85,7 @@ function updateAccount() { //updates the user's account based on the given email
         counter++;
     } 
     if((email.value.length < 1) || (!re.test(email.value))) {
-        email.style.border = "2px solid red";
+        email.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Invalid or missing email address.");
@@ -118,7 +94,7 @@ function updateAccount() { //updates the user's account based on the given email
         counter++;
     }
     if((password.value.length < 10) || (password.value.length > 20) || (!re1.test(password.value)) || (!re2.test(password.value)) || (!re3.test(password.value))) {
-        password.style.border = "2px solid red";
+        password.style.borderBottom = "2px solid red";
         err.style.display = "block";
         counter++;
         if((password.value.length < 10) || (password.value.length > 20)) {
@@ -147,7 +123,7 @@ function updateAccount() { //updates the user's account based on the given email
         }
     }
     if(!(passCheck.value === password.value)) {
-        passCheck.style.border = "2px solid red";
+        passCheck.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Password and confirmation password don't match.");
@@ -157,10 +133,10 @@ function updateAccount() { //updates the user's account based on the given email
     } 
     if(counter == 0) {
         err.style.display = "none";
-        fName.style.border = "1px solid #aaa";
-        email.style.border = "1px solid #aaa";
-        password.style.border = "1px solid #aaa";
-        passCheck.style.border = "1px solid #aaa";
+        fName.style.borderBottom = "1px solid #aaa";
+        email.style.borderBottom = "1px solid #aaa";
+        password.style.borderBottom = "1px solid #aaa";
+        passCheck.style.borderBottom = "1px solid #aaa";
         let txdata = {
             name: $('#fullName').val(),
             email: $('#email').val(),
@@ -190,14 +166,14 @@ function removeDevice() { //Remove a device from the user's account
     let device = document.getElementById("device");
     let err = document.getElementById("formErrors");
     let list = document.getElementById("list");
-    email.style.border = "1px solid #aaa";
-    device.style.border = "1px solid #aaa";
+    email.style.borderBottom = "1px solid #aaa";
+    device.style.borderBottom = "1px solid #aaa";
     while(list.firstChild) {
         list.removeChild(list.lastChild);
     }
     let counter = 0;
     if((email.value.length < 1) || (!re.test(email.value))) {
-        email.style.border = "2px solid red";
+        email.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Invalid or missing email address.");
@@ -206,7 +182,7 @@ function removeDevice() { //Remove a device from the user's account
         counter++;
     }
     if(device.value.length < 1) {
-        device.style.border = "2px solid red";
+        device.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Missing device ID.");
@@ -216,8 +192,8 @@ function removeDevice() { //Remove a device from the user's account
     }
     if(counter == 0) {
         err.style.display = "none";
-        email.style.border = "1px solid #aaa";
-        device.style.border = "1px solid #aaa";
+        email.style.borderBottom = "1px solid #aaa";
+        device.style.borderBottom = "1px solid #aaa";
         let txdata = {
             email: $('#email').val(),
             device: $('#device').val()
@@ -239,64 +215,72 @@ function removeDevice() { //Remove a device from the user's account
     counter = 0;
 }
 
-function getCount() {
-    $.ajax({
-        url: '/students/count',
-        method: 'GET'
-    })
-    .done(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    })
-    .fail(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    });
-}
-
-function readAll() {
-    $.ajax({
-        url: '/students/readAll',
-        method: 'GET'
-    })
-    .done(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    })
-    .fail(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    });
-}
-
-function searchStudent() {
+function weeklyView() {
     // data validation
-    if ($('#gpa').val() === "") {
-        window.alert("invalid gpa!");
-        return;
+    let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
+    let email = document.getElementById("email");
+    let device = document.getElementById("device");
+    let err = document.getElementById("formErrors");
+    let list = document.getElementById("list");
+    email.style.borderBottom = "1px solid #aaa";
+    device.style.borderBottom = "1px solid #aaa";
+    while(list.firstChild) {
+        list.removeChild(list.lastChild);
     }
-    let txdata = {
-        gpa: Number($('#gpa').val())
-    };
-    $.ajax({
-        url: '/students/search',
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(txdata),
-        dataType: 'json'
-    })
-    .done(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    })
-    .fail(function (data, textStatus, jqXHR) {
-        $('#rxData').html(JSON.stringify(data, null, 2));
-    });
+    let counter = 0;
+    if((email.value.length < 1) || (!re.test(email.value))) {
+        email.style.borderBottom = "2px solid red";
+        err.style.display = "block";
+        newElement = document.createElement("li");
+        textNode = document.createTextNode("Invalid or missing email address.");
+        newElement.appendChild(textNode);
+        list.appendChild(newElement);
+        counter++;
+    }
+    if(device.value.length < 1) {
+        device.style.borderBottom = "2px solid red";
+        err.style.display = "block";
+        newElement = document.createElement("li");
+        textNode = document.createTextNode("Missing device ID.");
+        newElement.appendChild(textNode);
+        list.appendChild(newElement);
+        counter++;
+    }
+    if(counter == 0) {
+        err.style.display = "none";
+        email.style.borderBottom = "1px solid #aaa";
+        device.style.borderBottom = "1px solid #aaa";
+        let txdata = {
+            email: $('#email').val(),
+            device: $('#device').val()
+        };
+        $.ajax({
+            url: '/customers/weeklyView',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(txdata),
+            dataType: 'json'
+        })
+        .done(function (data, textStatus, jqXHR) {
+            $('#rxData').html(JSON.stringify(data, null, 2));
+        })
+        .fail(function (data, textStatus, jqXHR) {
+            $('#rxData').html(JSON.stringify(data, null, 2));
+        });
+    }
+    counter = 0;
+}
+
+function dailyView() {
+    
 }
 
 $(function (){
     $('#btnAdd').click(addDevice);
     $('#btnRemove').click(removeDevice);
-    $('#btnRead').click(readStudent);
+    $('#btnWeek').click(weeklyView);
+    $('#btnDay').click(dailyView);
     $('#btnUpdate').click(updateAccount);
-    $('#btnCount').click(getCount);
-    $('#btnReadAll').click(readAll);
-    $('#btnSearch').click(searchStudent);
     $('#btnLogOut').click(logout);
 
     $.ajax({

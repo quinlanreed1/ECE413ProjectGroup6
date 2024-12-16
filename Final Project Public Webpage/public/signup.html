@@ -8,21 +8,22 @@
     <!-- Compiled and minified CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="stylesheets/site.css" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="javascripts/signup.js"></script>
   </head>
   <body>
+    <nav class="nav-wrapper bg-az-blue lighten-4" role="navigation">
+      <div class="nav-wrapper container">
+          <a id="logo-container" href="index.html">Home</a>
+          <a id="logo-container" href="login.html" >Log In</a>
+      </div>
+  </nav>
     <div class="container">
-      <nav class="nav-wrapper bg-az-blue lighten-4" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="left brand-logo valign-wrapper">Home</a>
-            <a id="logo-container" href="login.html" class="right brand-logo valign-wrapper">Log In</a>
-        </div>
-    </nav>
       <br/>
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
       <br/>
       <div>
         <div>
@@ -58,5 +59,13 @@
       <label for="rxData">Message: </label>
       <textarea id="rxData" style="width:100%; height:100%"></textarea>
     </div>
+    <footer class="page-footer bg-az-red darken-2">
+      <div class="footer-copyright">
+          <div class="container">
+              &copy; 2024; Quinlan Reed, Simon Ngandu, and Allen Fan
+              <span class="grey-text text-lighten-4 right">Electrical and Computer Engineering, University of Arizona</a>
+          </div>
+      </div>
+  </footer>
   </body>
 </html>

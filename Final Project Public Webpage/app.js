@@ -6,11 +6,10 @@ var logger = require('morgan');
 
 const bodyParser = require('body-parser');     // Parses JSON in body
 // for mongDB
-const Student = require("./models/student");
+const Customer = require("./models/customer");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var studentsRouter = require('./routes/students');
 var customersRouter = require('./routes/customers');
 
 var app = express();
@@ -45,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/students', studentsRouter);
 app.use('/customers', customersRouter);
 
 // catch 404 and forward to error handler

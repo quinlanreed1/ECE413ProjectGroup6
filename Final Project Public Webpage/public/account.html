@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Authentication Example - Account</title>
+    <title>Account</title>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="stylesheets/site.css" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="javascripts/account.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
+    <nav class="nav-wrapper bg-az-blue lighten-4" role="navigation">
+      <div class="nav-wrapper container">
+          <a id="logo-container" href="index.html">Home</a>
+      </div>
+  </nav>
     <div class="container">
-      <a href="index.html" class="left brand-logo valign-wrapper">Home</a>
       <br/>
-      <h1>Account</h1>
+      <h2>Account</h2>
       <br/>
       <div>
         <div>
@@ -36,6 +43,10 @@
           <p><label for="device">Device</label></p>
           <p><input type="text" id="device" name="device"></p>
         </div>
+        <div>
+          <p><label for="date">Date</label></p>
+          <p><input type="date" id="date" name="date"></p>
+        </div>
         <div id="formErrors">
           <ul id="list">
               
@@ -44,11 +55,9 @@
         <br/>
         <button id="btnAdd">Add New Device</button>
         <button id="btnRemove">Remove Device</button>
-        <button id="btnRead">Read (using name)</button>
+        <button id="btnWeek">Weekly Summary View</button>
+        <button id="btnDay">Detailed Daily View</button>
         <button id="btnUpdate">Update Profile</button>
-        <button id="btnCount">Get # of Students in DB</button>
-        <button id="btnReadAll">Read all</button>
-        <button id="btnSearch">Search (> gpa) </button>
         <button id="btnLogOut">Log Out</button>
       </div>
     </div>
@@ -63,5 +72,13 @@
         }
       })();
     </script>
+    <footer class="page-footer bg-az-red darken-2">
+      <div class="footer-copyright">
+          <div class="container">
+              &copy; 2024; Quinlan Reed, Simon Ngandu, and Allen Fan
+              <span class="grey-text text-lighten-4 right">Electrical and Computer Engineering, University of Arizona</a>
+          </div>
+      </div>
+  </footer>
   </body>
 </html>

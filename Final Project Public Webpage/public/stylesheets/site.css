@@ -3,6 +3,15 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+a {
+    float: left;
+    margin-right: 15px;
+    font-size: 20pt;
+    color: lightblue;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .bg-az-blue {
     background-color: rgb(13, 36, 75);
 }

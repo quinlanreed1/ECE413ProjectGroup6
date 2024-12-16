@@ -26,10 +26,12 @@ router.post("/signUp", function (req, res) {
        }
        else {
            const passwordHash = bcrypt.hashSync(req.body.password, 10);
+           const newKey = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
            const newCustomer = new Customer({
                name: req.body.name,
                email: req.body.email,
                passwordHash: passwordHash,
+               apiKey: newKey,
                devices: req.body.device
            });
 
@@ -38,7 +40,7 @@ router.post("/signUp", function (req, res) {
                    res.status(400).json({ success: false, err: err });
                }
                else {
-                   let msgStr = `Customer (${req.body.email}) account has been created.`;
+                   let msgStr = `Customer (${req.body.email}) account has been created. API key = ` + newKey + '.';
                    res.status(201).json({ success: true, message: msgStr });
                    console.log(msgStr);
                }
@@ -97,7 +99,7 @@ router.get("/status", function (req, res) {
    try {
        const decoded = jwt.decode(token, secret);
        // Send back email and last access
-       Customer.find({ email: decoded.email }, "email lastAccess devices", function (err, users) {
+       Customer.find({ email: decoded.email }, "email devices apiKey lastAccess", function (err, users) {
            if (err) {
                res.status(400).json({ success: false, message: "Error contacting DB. Please contact support." });
            }
@@ -129,6 +131,67 @@ router.post("/addDevice", function (req, res) {
         }
     })
 });
+
+router.post('/deviceData', (req, res) => { //receives data from webhook and adds it to customer
+    const { API_Key } = req.body; // Extract only the API_Key from the request body
+
+    Customer.findOneAndUpdate({ apiKey: API_Key }, { $addToSet: { data: {values: {ID: req.body.coreid, oxygen: req.body.blood_oxygen_level, heartRate: req.body.heart_rate, received: req.body.published_at} } } } , function (err, doc) {
+        if (err) {
+            console.log("Error reading device data: " + err);
+        }
+        else {
+            if (doc == null) {
+                console.log("No customer with API key " + API_Key);
+            }
+            else {
+                console.log("Customer with key " + API_Key + "has new data."); 
+            }
+        }
+    })
+});
+
+router.post("/weeklyView", function (req, res) {
+    let startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7);
+    Customer.find({ email: req.body.email}, function (err, docs) {
+        if (err) {
+            msgStr = `Customer (email: ${req.body.email}) info does not exist in DB.`
+            res.status(201).json({ message: msgStr });
+        }
+        else {
+            try {
+                //let output = "Average Heart Rate: Normal. Minimum Heart Rate: Why worry? Maximum Heart Rate: Hearing the number certainly won't help."
+                Customer.data.values.aggregate([{
+                    $group: {
+                        $cond: {
+                            if: {ID: req.body.device},
+                            then: {
+                                $cond: {
+                                    if: { $gt: ["$received", startDate] },
+                                    then: {
+                                        averageHR: {$avg: $heartRate},
+                                        minHR: {$min: $heartRate},
+                                        maxHR: {$max: $heartRate}
+                                    },
+                                }
+                            }
+                        }
+                    }
+                }]);
+                if(averageHR > 0) {
+                    let output = "Average Heart Rate: " + averageHR + ". Minimum Heart Rate: " + minHR + " Maximum Heart Rate: " + maxHR + "."
+                }
+                else {
+                    let output = "Average Heart Rate: Normal. Minimum Heart Rate: Why worry? Maximum Heart Rate: Hearing the number certainly won't help."
+                }
+                res.status(200).json({message: output});
+            }
+            catch (ex) {
+                res.status(404).json({ success: false, message: "No Data" });
+            }
+        }
+    });
+ });
 
 router.post("/removeDevice", function (req, res) {
     Customer.findOneAndUpdate({ email: req.body.email }, { $pull: { devices: req.body.device } } , function (err, doc) {

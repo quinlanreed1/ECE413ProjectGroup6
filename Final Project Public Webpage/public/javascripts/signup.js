@@ -13,17 +13,17 @@ function signup() {
     let device = document.getElementById("device");
     let err = document.getElementById("formErrors");
     let list = document.getElementById("list");
-    fName.style.border = "1px solid #aaa";
-    email.style.border = "1px solid #aaa";
-    password.style.border = "1px solid #aaa";
-    passCheck.style.border = "1px solid #aaa";
-    device.style.border = "1px solid #aaa";
+    fName.style.borderBottom = "1px solid #aaa";
+    email.style.borderBottom = "1px solid #aaa";
+    password.style.borderBottom = "1px solid #aaa";
+    passCheck.style.borderBottom = "1px solid #aaa";
+    device.style.borderBottom = "1px solid #aaa";
     while(list.firstChild) {
         list.removeChild(list.lastChild);
     }
     let counter = 0;
     if(fName.value.length < 1) {
-        fName.style.border = "2px solid red";
+        fName.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Missing full name.");
@@ -32,7 +32,7 @@ function signup() {
         counter++;
     } 
     if((email.value.length < 1) || (!re.test(email.value))) {
-        email.style.border = "2px solid red";
+        email.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Invalid or missing email address.");
@@ -41,7 +41,7 @@ function signup() {
         counter++;
     }
     if((password.value.length < 10) || (password.value.length > 20) || (!re1.test(password.value)) || (!re2.test(password.value)) || (!re3.test(password.value))) {
-        password.style.border = "2px solid red";
+        password.style.borderBottom = "2px solid red";
         err.style.display = "block";
         counter++;
         if((password.value.length < 10) || (password.value.length > 20)) {
@@ -70,7 +70,7 @@ function signup() {
         }
     }
     if(!(passCheck.value === password.value)) {
-        passCheck.style.border = "2px solid red";
+        passCheck.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Password and confirmation password don't match.");
@@ -79,7 +79,7 @@ function signup() {
         counter++;
     } 
     if(device.value.length < 1) {
-        device.style.border = "2px solid red";
+        device.style.borderBottom = "2px solid red";
         err.style.display = "block";
         newElement = document.createElement("li");
         textNode = document.createTextNode("Missing device ID.");
@@ -89,11 +89,11 @@ function signup() {
     } 
     if(counter == 0) {
         err.style.display = "none";
-        fName.style.border = "1px solid #aaa";
-        email.style.border = "1px solid #aaa";
-        password.style.border = "1px solid #aaa";
-        passCheck.style.border = "1px solid #aaa";
-        device.style.border = "1px solid #aaa";
+        fName.style.borderBottom = "1px solid #aaa";
+        email.style.borderBottom = "1px solid #aaa";
+        password.style.borderBottom = "1px solid #aaa";
+        passCheck.style.borderBottom = "1px solid #aaa";
+        device.style.borderBottom = "1px solid #aaa";
         let txdata = {
             name: $('#fullName').val(),
             email: $('#email').val(),
