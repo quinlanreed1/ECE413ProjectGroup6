@@ -36,3 +36,10 @@ Steps
 # License
 
 # Contact
+Developed by Simon Ngandu, Quinlan Reed and Allen Fan.
+
+Emails:
+simongngandu@arizona.edu
+
+GitHub:
+
