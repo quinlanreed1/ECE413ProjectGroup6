@@ -32,7 +32,9 @@ Steps
 1. build the circuit using online sources. Usually the argon device comes in a box with the circuit on it.
 2. connect argon device to the particle cloud.
 3. connect the argon device to your WIFI or Hotspot.
-4. Setup an integration in the particle 
+4. Add you device to the particle cloud/website.
+5. Setup an integration in the particle website.
+6. Monitor the events section in the particle cloud to view all data from argon device.
 
 
 # Usage
