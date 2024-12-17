@@ -25,3 +25,14 @@ To set up and run the project locally, you will need the following:
 Steps
 1. build the circuit using online sources.
 2. connect argon device to the particle cloud.
+
+
+# Usage
+
+# Features
+
+# Contributing
+
+# License
+
+# Contact
