@@ -50,8 +50,8 @@ Steps (Webpage):
 
 
 # Links
-Currently running webpage: http://ec2-3-129-73-175.us-east-2.compute.amazonaws.com:3000/
-Kickstarter Pitch Video: https://www.youtube.com/watch?v=F0Ki2O7T4Ag
+Currently running webpage: http://ec2-3-129-73-175.us-east-2.compute.amazonaws.com:3000/\
+Kickstarter Pitch Video: https://www.youtube.com/watch?v=F0Ki2O7T4Ag\
 Final Project Demo Video: https://youtu.be/5yZiM4iggng
 
 Existing username: server@gmail.com
