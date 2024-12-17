@@ -1,34 +1,34 @@
-body {
+body { /*sets basic features for use throughout the html*/
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+a { /* defines the features of any link elements*/
     float: left;
-    margin-right: 15px;
+    margin-right: 30px;
     font-size: 20pt;
     color: lightblue;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.bg-az-blue {
+.bg-az-blue { /*sets the background color for any marked elements*/
     background-color: rgb(13, 36, 75);
 }
 
-.bg-az-red {
+.bg-az-red { /*sets the background color for any marked elements*/
     background-color: rgb(169, 11, 37);
 }
 
-.text-az-blue {
+.text-az-blue { /*sets the color for any marked elements*/
     color: rgb(13, 36, 75);
 }
 
-.text-az-red {
+.text-az-red { /*sets the color for any marked elements*/
     color: rgb(169, 11, 37);
 }
 
-.nav-wrapper {
+.nav-wrapper { /*sets the height and margin for all marked elements*/
     height: 65px;
     margin-bottom: 25px;
 }
@@ -37,7 +37,7 @@ a {
     flex-direction: column;
 }
 
-input {
+input { /* defines the features of any input elements*/
     box-sizing: border-box;
     width: 500px;
     padding: 10px;
@@ -45,19 +45,19 @@ input {
     border-radius: 4px;
 }
 
-h2 {
+h2 { /* defines the features of any h2 elements*/
     font-style: bold;
 }
 
-li {
+li { /* defines the features of any li elements*/
     color: red;
 }
 
-#formErrors {
+#formErrors { /*initializes the formErrors class to not display*/
     display: none;
 }
 
-#btnSignUp {
+#btnSignUp { /* defines the features of the signUp button*/
     width: 500px;
    background-color: #09f;
    color: white;
@@ -68,12 +68,12 @@ li {
    cursor: pointer;
 }
 
-.team-container {
+.team-container { /*sets the default behavior for the team container class*/
     display: flex;
     flex-direction: column;
  }
  
- .team-container img {
+ .team-container img { /*sets the default behavior for images with the team container class*/
     display: block;
     margin-left: auto;
     margin-right: auto;

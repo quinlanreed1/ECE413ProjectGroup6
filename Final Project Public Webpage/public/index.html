@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--Initializes scripts to be used with the webpage-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="stylesheets/site.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -13,7 +10,7 @@
     <title>ECE 413 Final Project</title>
 </head>
 <body>
-    <nav class="nav-wrapper bg-az-blue lighten-4" role="navigation">
+    <nav class="nav-wrapper bg-az-blue lighten-4" role="navigation"> <!--Creates the navigation bar-->
         <div class="nav-wrapper container">
             <a id="logo-container" href="references.html">References</a>
             <a id="logo-container" href="signup.html" >Sign Up</a>
@@ -28,15 +25,20 @@
                         <h2 class="intro">Welcome!</h2>
                         <div class="description">
                             <p>This website acts as the final project for ECE 413/513 at the University of Arizona. It allows a user to create an account, register one or 
-                                multiple HeartTracker device(s), and view the output of a given registered device for either the last week or a specific day.</p>
+                                multiple HeartTracker device(s), and view the output of a given registered device. A user can specify a device using its ID and see either
+                                their average, minimum, and maximum heart rate for the last week; or a graph detailing the user's heart rate and blood oxygen level over
+                                the course of a selected day. This webpage is one half of the project, with the other half being the Argon device and MAX30102 Heart Tracker
+                                sensor code. The user can link the Argon device to the webpage through the use of a webhook, which will require a link to the webpage 
+                                (http://ec2-3-129-73-175.us-east-2.compute.amazonaws.com:3000/deviceData) and an API key, which will be given on account creation.</p>
                                 <h3>Team Members:</h4>
                                 <div class="team-container">
                                     <img src="images/Simon.webp" alt="Simon Ngandu">
                                     <div>
                                         <h4>Simon Ngandu</h4><br />
-                                        <p>Hello! There are words here because the pictures do strange things in the absence of words, please replace this block of text with an actual
-                                            statement ASAP.
+                                        <p>Hello! I am Simon, I am an ECE student studying here at the University of Arizona. I have greatly enjoyed my time in this class, particularly
+                                            being able to work with the IOT device, and I am excited to apply these skills to more projects in the future.
                                         </p>
+                                        <p>Email address: simongngandu@arizona.edu</p>
                                     </div>
                                 </div>
                                 <div class="team-container">
@@ -44,8 +46,8 @@
                                     <div>
                                         <h4>Quinlan Reed</h4><br />
                                         <p>Hello! I am Quinlan, I am a Software Engineering senior taking this class as a technical elective. I have relatively little experience working
-                                            with web design, so I think this class has been a great opportunity for me to broaden my horizons!
-                                        </p>
+                                            with web design, so I think this class has been a great opportunity for me to broaden my horizons!</p>
+                                        <p>Email address: quinlanthered@arizona.edu</p>
                                     </div>
                                 </div>
                                 <div class="team-container">
@@ -54,7 +56,8 @@
                                         <h4>Allen Fan</h4><br />
                                         <p>Hi everyone, my name is Allen, and I am an Electrical and Computer Engineering (ECE) major. I’m taking this class as it is a mandatory 
                                             requirement for Computer Engineering students, but beyond that, I’m genuinely excited about the opportunity to learn and grow in this 
-                                            field. I’m looking forward to making the most of this class!</p>
+                                            field. I’m looking forward to making the most of this class!</p> 
+                                        <p>Email address: gfan@arizona.edu</p>
                                     </div>
                                 </div>
                         </div>
@@ -73,7 +76,7 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer bg-az-red darken-2">
+    <footer class="page-footer bg-az-red darken-2"> <!--Creates the footer-->
         <div class="footer-copyright">
             <div class="container">
                 &copy; 2024; Quinlan Reed, Simon Ngandu, and Allen Fan
